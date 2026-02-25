@@ -1,7 +1,6 @@
 {
    "background": {
-      "service_worker": "bg.js",
-      "type": "module"
+      "service_worker": "bg.js"
    },
    "action": {
       "default_icon": "icons/icon.png",
