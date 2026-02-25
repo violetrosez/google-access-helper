@@ -1,5 +1,3 @@
-importScripts('lib/sea.js');
-
 var needShowWarming = !1;
 chrome.proxy.settings.set({
     value: {
