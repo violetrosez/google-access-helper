@@ -10,7 +10,19 @@ This is a Chrome browser extension (Manifest V2) called "谷歌访问助手" (Go
 - The extension fetches proxy configurations from remote servers (`ggfwzs.com` and related domains) which are external and likely defunct. Full proxy functionality cannot be tested without those servers.
 
 ### Running / testing the extension
-1. Launch Chrome: `google-chrome --no-sandbox &`
+
+**Chrome 145+ (installed as `google-chrome`) does NOT support Manifest V2.** You must use Chrome 120, which is installed at `/tmp/chrome-linux64/chrome`. If it is not present, download it:
+```bash
+cd /tmp && curl -L -o chrome120.zip "https://storage.googleapis.com/chrome-for-testing-public/120.0.6099.109/linux64/chrome-linux64.zip" && unzip -q chrome120.zip
+```
+
+Launch with the extension pre-loaded:
+```bash
+/tmp/chrome-linux64/chrome --no-sandbox --no-first-run --user-data-dir=/tmp/chrome120-profile --load-extension=/workspace &
+```
+
+Alternatively, load manually:
+1. Launch Chrome 120: `/tmp/chrome-linux64/chrome --no-sandbox --no-first-run --user-data-dir=/tmp/chrome120-profile &`
 2. Navigate to `chrome://extensions`
 3. Enable **Developer mode**
 4. Click **Load unpacked** and select `/workspace`
